@@ -63,7 +63,14 @@ jobs:
           curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
           echo "Deployment triggered!"
 
-      - name: Wait for deployment
+      - name: Wait for deployment 
         run: |
           echo "Deployment started. Check Render dashboard for status."
           echo "URL: https://devops-app-sk.onrender.com"
+
+      - name: Wait for deployment to be live 
+        run: |
+          echo "Waiting for deployment..."
+          sleep 60
+          curl -f https://devops-app-sk.onrender.com/health || exit 1
+          echo "Deployment successful!"
