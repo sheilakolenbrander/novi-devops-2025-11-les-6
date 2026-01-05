@@ -66,4 +66,4 @@ jobs:
       - name: Wait for deployment
         run: |
           echo "Deployment started. Check Render dashboard for status."
-          echo "URL: https://jouw-app.onrender.com"
+          echo "URL: https://devops-app-sk.onrender.com"
